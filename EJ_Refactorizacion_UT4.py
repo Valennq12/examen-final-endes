@@ -12,13 +12,13 @@ class receta(ABC):
 
 # Clase para recetas vegetarianas
 class recetaVegetariana(receta):
-    pass
+    lista_recetas = []
 
 
 
 # Clase para recetas no vegetarianas
 class recetaNoVegetariana(receta):
-    pass
+    lista_recetas = []
 
 
 
@@ -46,24 +46,32 @@ class utilidades:
         for elemento in lista:
             print(f"* {elemento}")
 
+    @staticmethod
+    def crear_receta():
+        nombre_receta = input('Nombre receta: ')
+        ingrediente = 'si'
+        lista_ingredientes = []
+        while ingrediente != 'no':
+            ingrediente = input('Dime un ingrediente. SI NO QUIERES AÑADIR MÁS ESCRIBE NO: ').lower()
+            lista_ingredientes.append(ingrediente)
+            
+        paso = 'si'
+        lista_pasos = []
+        while paso != 'no':
+            paso = input('Dime un ingrediente. SI NO QUIERES AÑADIR MÁS ESCRIBE NO: ').lower()
+            lista_pasos.append(paso)
+
+        return nombre_receta,lista_ingredientes,lista_pasos
+
+
+            
+
+
+
 # Función principal
 def Main():
-    receta1 = recetaVegetariana("Ensalada César", ["lechuga", "queso", "pan tostado", "salsa"], ["Lavar", "Mezclar", "Servir"])
-    receta2 = recetaNoVegetariana("Pollo al horno", ["pollo", "patatas", "ajo", "aceite"], ["Preparar", "Hornear", "Servir"])
     
-    # Duplicación de código al imprimir
-    print("== Mostrar recetas ==")
-    utilidades.imprimir_receta(receta1)
-    utilidades.imprimir_receta(receta2)
-
-    # Código duplicado para mostrar ingredientes
-    print("Ingredientes de Ensalada César:")
-    for ingrediente in receta1.ingredientes:
-        print(f"* {ingrediente}")
-    
-    print("Ingredientes de Pollo al horno:")
-    for ingrediente in receta2.ingredientes:
-        print(f"* {ingrediente}")
+   pass
 
 
 # Ejecutar el programa
